@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "brand": "CabiCo:",
+    "slogan": "Comfort above all",
+    "subtitle": "Comfort, Safety, Convenience — your new standard for rides with MLT."
+  },
+  "about": {
+    "title": "Who we are?",
+    "card1_title": "A Vision from Georgia",
+    "card1_p1": "MLT is the founder of Georgia's first taxi and transfer aggregator platform, as well as the CabiCo app for convenient ride-hailing.",
+    "card1_p2": "We are your source for calling comfortable taxis and transfers, created for you with a Georgian vision and heart.",
+    "card1_p3": "Our fleet consists of comfortable and modern cars, where everyone can find a vehicle to their taste!",
+    "card2_title": "Privacy is our name",
+    "card2_p1": "One of our main advantages: we collect absolutely no data (including payment data) about users and do not sell it to third parties.",
+    "card2_p2": "We do not use cookies or sell them to search aggregators. We have no hidden sub-services, paid subscriptions, or hidden fees.",
+    "card2_p3": "We are proud of our users and provide them with the best experience interacting with our services.",
+    "card3_title": "Profitable Partnership",
+    "card3_p1": "MLT is an official partner of Yandex and Bolt, providing drivers with the best conditions for work.",
+    "card3_p2": "We offer the lowest commissions in Georgia, stable payouts, and a flexible schedule.",
+    "card3_p3": "We do not charge any hidden fees or dues from our drivers. Our slogan is - Transparency in everything."
+  },
+  "services": {
+    "title": "What we offer",
+    "card1_title": "CabiCo App",
+    "card1_desc": "A convenient and intuitive application for quickly ordering taxis and transfers.",
+    "card2_title": "All types of transfers",
+    "card2_desc": "Comfortable airport transfers, intercity trips, as well as transfers between Georgia and Armenia.",
+    "card3_title": "Professional Drivers",
+    "card3_desc": "Comfortable taxis with experienced, multilingual, and polite drivers.",
+    "card4_title": "Safety and Comfort",
+    "card4_desc": "A fast, comfortable, and most importantly — safe service for your daily routine."
+  },
+  "app_promo": {
+    "title": "Order <1>CabiCo</1> in one tap",
+    "subtitle": "Our application provides direct access to comfortable rides throughout Georgia. Fast, convenient, and most importantly — private. Minimalist design, convenience in all aspects. Install, order, travel!",
+    "btn_apple": "Download on the",
+    "btn_apple_store": "App Store",
+    "btn_google": "Get it on",
+    "btn_google_store": "Google Play"
+  },
+  "reviews": {
+    "title": "Feedback from our clients",
+    "form_title": "Leave a review",
+    "label_name": "Your name",
+    "label_rating": "Your rating",
+    "label_review": "Review",
+    "btn_submit": "Submit review",
+    "btn_submitting": "Submitting...",
+    "placeholder_loading": "Loading reviews...",
+    "placeholder_empty": "No reviews yet. Be the first!",
+    "error_fill_fields": "Please fill in all fields and select a rating."
+  },
+  "footer": {
+    "col1_p1": "Founder of CabiCo, Georgia's first taxi and transfer aggregator platform.",
+    "col1_p2": "Comfort, Safety, Convenience.",
+    "col2_title": "Contacts",
+    "col2_label_address": "Address:",
+    "col2_data_address": "(Fighters for Georgia's Freedom Street 20b)",
+    "col2_label_phone": "Phone:",
+    "col2_label_email": "Email:",
+    "col3_title": "Find us on social media",
+    "alt_facebook": "Facebook",
+    "alt_instagram": "Instagram",
+    "alt_whatsapp": "WhatsApp",
+    "alt_telegram": "Telegram",
+    "copyright": "© {year} MLT. All rights reserved. Developed with ❤️ in Georgia."
+  },
+  "navbar": {
+    "about": "About Us",
+    "services": "Services",
+    "app_promo": "App",
+    "reviews": "Reviews",
+    "contact": "Contact"
+  }
+}

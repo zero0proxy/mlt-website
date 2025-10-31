@@ -3,20 +3,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Вариант для КОНТЕЙНЕРА (сетки), чтобы "разнести" анимацию детей
+// 1. Импортируем 'useTranslation'
+import { useTranslation } from 'react-i18next';
+
+// Вариант для КОНТЕЙНЕРА (без изменений)
 const gridContainerVariant = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      // 'staggerChildren: 0.2' означает, что
-      // каждая следующая карточка начнет анимацию на 0.2с позже предыдущей.
       staggerChildren: 0.2
     }
   }
 };
 
-// Вариант для каждой КАРТОЧКИ (выезд снизу)
+// Вариант для каждой КАРТОЧКИ (без изменений)
 const cardVariant = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -27,21 +28,17 @@ const cardVariant = {
 };
 
 const About = () => {
+  // 2. Получаем функцию 't'
+  const { t } = useTranslation();
+
   return (
-    // 'py-24' - отступы. 
-    // 'max-w-7xl' - мы сделали секцию чуть шире, чтобы влезли 3 карточки
     <div className="py-24 px-6 max-w-7xl mx-auto">
       
-      {/* Заголовок секции */}
+      {/* 3. Заменяем текст на ключ */}
       <h2 className="text-4xl font-bold text-center text-white mb-16">
-        Кто мы?
+        {t('about.title')}
       </h2>
 
-      {/* КОНТЕЙНЕР КАРТОЧЕК
-        - 'md:grid-cols-3' - вот наше изменение на 3 колонки.
-        - 'gap-8' - немного уменьшили отступ между карточками.
-        - Мы применяем 'gridContainerVariant' к этому 'motion.div'
-      */}
       <motion.div 
         className="grid md:grid-cols-3 gap-8 items-start"
         variants={gridContainerVariant}
@@ -50,70 +47,66 @@ const About = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         
-        {/* === КАРТОЧКА 1: Видение (без изменений) === */}
-        {/* КАРТОЧКА
-          - Мы применяем 'cardVariant' к каждой карточке.
-          - 'h-full' - гарантирует, что все карточки будут одной высоты.
-        */}
+        {/* === КАРТОЧКА 1 === */}
         <motion.div
           variants={cardVariant}
           className="bg-white/5 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-white/10 h-full"
         >
           <h3 className="text-2xl font-semibold text-white mb-4">
-            Видение из Грузии
+            {t('about.card1_title')}
           </h3>
           <p className="text-gray-300 leading-relaxed">
-            MLT является основателем первой в Грузии платформы-агрегатора такси и трансферов, а также приложения CabiCo для удобного заказа поездки.
+            {t('about.card1_p1')}
           </p>
           <br />
           <p className="text-gray-300 leading-relaxed">
-            Мы — источник вызова комфортного такси и трансферов, созданный для вас с грузинским видением и сердцем.
+            {t('about.card1_p2')}
           </p>
           <br />
            <p className="text-gray-300 leading-relaxed">
-            Наш автопарк состоит из комфортных и современных автомобилей, где любой сможет найти авто на свой вкус!
-          </p>
+            {t('about.card1_p3')}
+           </p>
         </motion.div>
 
-        {/* === КАРТОЧКА 2: Приватность (текст отредактирован) === */}
+        {/* === КАРТОЧКА 2 === */}
         <motion.div
           variants={cardVariant}
           className="bg-white/5 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-white/10 h-full"
         >
           <h3 className="text-2xl font-semibold text-white mb-4">
-            Приватность - наше имя
+            {t('about.card2_title')}
           </h3>
           <p className="text-gray-300 leading-relaxed">
-            Одно из наших главных преимуществ: мы не собираем абсолютно никаких данных (в том числе платёжных) о пользователях и не продаем их третьим лицам.
+            {t('about.card2_p1')}
           </p>
           <br />
           <p className="text-gray-300 leading-relaxed">
-            Мы не используем cookies и не продаём их поисковым агрегаторам. У нас нет скрытых подсервисов, платных подписок и скрытых комиссий.
+            {t('about.card2_p2')}
           </p>
           <br />
           <p className="text-gray-300 leading-relaxed">
-            Мы гордимся нашими пользователями и предоставляем им самый лучший опыт взаимодействия с нашими сервисами.
+            {t('about.card2_p3')}
           </p>
         </motion.div>
 
-        {/* === КАРТОЧКА 3: Партнерство (НОВАЯ) === */}
+        {/* === КАРТОЧКА 3 === */}
         <motion.div
           variants={cardVariant}
           className="bg-white/5 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-white/10 h-full"
         >
           <h3 className="text-2xl font-semibold text-white mb-4">
-            Выгодное партнерство
+            {t('about.card3_title')}
           </h3>
           <p className="text-gray-300 leading-relaxed">
-            MLT является официальным партнером Yandex и Bolt, предоставляя водителям лучшие условия для работы.
+            {t('about.card3_p1')}
           </p>
           <br />
           <p className="text-gray-300 leading-relaxed">
-            Мы предлагаем самые низкие комиссионные в Грузии, стабильные выплаты и свободный график.
+            {t('about.card3_p2')}
           </p>
           <br />
           <p className="text-gray-300 leading-relaxed">
-            Мы не взимаем с наших водителей каких - либо скрытых платежей и взносов. Наш слоган - Прозрачность во всём.
+            {t('about.card3_p3')}
           </p>
         </motion.div>
 
