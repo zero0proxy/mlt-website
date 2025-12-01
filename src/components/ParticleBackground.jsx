@@ -1,8 +1,6 @@
-// src/components/ParticleBackground.jsx
-
 import React, { useRef, useEffect, useCallback } from 'react';
 
-// Класс Particle можно вынести за пределы компонента
+// Particle
 class Particle {
   constructor(canvas) {
     this.canvas = canvas;
@@ -51,17 +49,13 @@ class Particle {
 const ParticleBackground = () => {
   const canvasRef = useRef(null);
   
-  // Мы используем useRef для хранения массива частиц и ID анимации,
-  // чтобы их изменения не вызывали ре-рендер компонента.
+  // useRef для хранения массива частиц и ID анимации,
   const particlesRef = useRef([]);
   const animationFrameIdRef = useRef(null);
 
   const calculateParticleCount = (canvas) => {
     return Math.floor((canvas.width * canvas.height) / 6000);
   };
-
-  // 'useCallback' гарантирует, что эти функции не будут пересоздаваться
-  // при каждом рендере (хотя в данном случае это не критично, но это хорошая практика).
   
   const initParticles = useCallback((canvas, ctx) => {
     const particleCount = calculateParticleCount(canvas);
@@ -81,7 +75,6 @@ const ParticleBackground = () => {
     animationFrameIdRef.current = requestAnimationFrame(() => animate(ctx));
   }, []);
   
-  // ПРАВИЛЬНО (просто '() =>')
 const onResize = useCallback(() => {
   const canvas = canvasRef.current;
   if (canvas) {
@@ -89,35 +82,33 @@ const onResize = useCallback(() => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    // Сбрасываем частицы, чтобы они соответствовали новому размеру
     const particleCount = calculateParticleCount(canvas);
     particlesRef.current = [];
     for (let i = 0; i < particleCount; i++) {
       particlesRef.current.push(new Particle(canvas));
     }
   }
-}, []); // Зависимости не меняются
+}, []);
 
-  // Хук useEffect запускается один раз при монтировании компонента
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     
-    // Устанавливаем начальные размеры
+    // размеры
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     initParticles(canvas, ctx);
     
-    // Запускаем цикл анимации
+    // цикл анимации
     animationFrameIdRef.current = requestAnimationFrame(() => animate(ctx));
 
-    // Добавляем слушатель изменения размера окна
+    // изменение размера окна
     window.addEventListener('resize', onResize);
 
-    // Функция очистки, которая сработает при размонтировании компонента
+    // очистка
     return () => {
       if (animationFrameIdRef.current) {
         cancelAnimationFrame(animationFrameIdRef.current);
