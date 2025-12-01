@@ -1,9 +1,7 @@
-// src/components/Hero.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// 1. Импортируем 'useTranslation'
+// 1. Импорт 'useTranslation'
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
@@ -20,7 +18,7 @@ const Hero = () => {
       >
         <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-4">
           
-          {/* 3. Заменяем "захардкоженный" текст на ключи из JSON */}
+          {/* ключи из JSON */}
           {t('hero.brand')}{' '} {/* 'hero.brand' = "CabiCo:" */}
           
           <span className="text-gray-700 dark:text-gray-300">
