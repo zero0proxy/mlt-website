@@ -1,12 +1,10 @@
-// src/components/About.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
 // 1. Импортируем 'useTranslation'
 import { useTranslation } from 'react-i18next';
 
-// Вариант для КОНТЕЙНЕРА (без изменений)
+// Вариант для КОНТЕЙНЕРА
 const gridContainerVariant = {
   hidden: { opacity: 0 },
   visible: {
@@ -17,7 +15,7 @@ const gridContainerVariant = {
   }
 };
 
-// Вариант для каждой КАРТОЧКИ (без изменений)
+// Вариант для каждой КАРТОЧКИ
 const cardVariant = {
   hidden: { opacity: 0, y: 50 },
   visible: {
