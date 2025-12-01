@@ -1,5 +1,3 @@
-// src/components/AppPromo.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation, Trans } from 'react-i18next';
@@ -25,16 +23,16 @@ const AppPromo = () => {
             </Trans>
           </h2>
           
-          {/* Твой субтитр (с i18n) */}
+          {/* субтитр (с i18n) */}
           <p className="text-lg text-gray-300 leading-relaxed mb-8">
             {t('app_promo.subtitle')}
           </p>
           
-          {/* === КНОПКИ (ИСПРАВЛЕННЫЕ) === */}
+          {/* === КНОПКИ === */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a 
               href="#"
-              /* ВОТ ИСПРАВЛЕНИЕ: 
+              /* ИСПРАВЛЕНИЕ: 
                 'bg-white/10' (темный) вместо 'bg-white' (белый)
                 'text-white' (белый) вместо 'text-black' (черный)
               */
@@ -54,7 +52,7 @@ const AppPromo = () => {
             </a>
             <a 
               href="#"
-              /* ВОТ ИСПРАВЛЕНИЕ: 
+              /* ИСПРАВЛЕНИЕ: 
                 'bg-white/10' (темный) вместо 'bg-white' (белый)
                 'text-white' (белый) вместо 'text-black' (черный)
               */
@@ -75,7 +73,7 @@ const AppPromo = () => {
           </div>
         </motion.div>
 
-        {/* === ПРАВАЯ КОЛОНКА (Твой код сохранен) === */}
+        {/* === ПРАВАЯ КОЛОНКА === */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView="visible"
@@ -83,7 +81,7 @@ const AppPromo = () => {
           variants={{ visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } } }}
           className="flex justify-center items-center gap-8"
         >
-          {/* Твой телефон со скриншотом */}
+          {/* телефон со скриншотом */}
           <div className="relative border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[550px] w-[270px] shadow-xl">
             <div className="h-[524px] w-[242px] bg-black rounded-[2rem] overflow-hidden">
               <div className="w-full h-full flex items-center justify-center">
@@ -94,7 +92,7 @@ const AppPromo = () => {
             </div>
           </div>
 
-          {/* Твой логотип с твоим размером */}
+          {/* логотип */}
           <motion.img
             src="/assets/logo.png"
             alt="CabiCo App Logo"
