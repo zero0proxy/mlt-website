@@ -1,10 +1,8 @@
-// src/components/Services.jsx
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-// Анимации (без изменений)
+// Анимации
 const gridContainerVariant = {
   hidden: { opacity: 0 },
   visible: {
@@ -24,28 +22,24 @@ const cardVariant = {
   }
 };
 
-// === КОМПОНЕНТ SERVICES ===
+// === SERVICES ===
 
 const Services = () => {
   const { t } = useTranslation();
 
-  // === ОБНОВЛЕННЫЙ МАССИВ ===
-  // Мы используем <img> теги вместо SVG
   const servicesData = [
     {
-      // (Убедись, что 'icon-app.png' - это твое имя файла)
       icon: (
         <img 
           src="/assets/icons/icon-app.png" 
           alt={t('services.card1_title')} 
-          className="w-10 h-10 mb-4" // Задаем тот же размер, что был у SVG
+          className="w-10 h-10 mb-4"
         />
       ),
       titleKey: "services.card1_title",
       descKey: "services.card1_desc"
     },
     {
-      // (Убедись, что 'icon-transfer.png' - это твое имя файла)
       icon: (
         <img 
           src="/assets/icons/icon-transfer.png" 
@@ -57,7 +51,6 @@ const Services = () => {
       descKey: "services.card2_desc"
     },
     {
-      // (Убедись, что 'icon-driver.png' - это твое имя файла)
       icon: (
         <img 
           src="/assets/icons/icon-driver.png" 
@@ -69,7 +62,6 @@ const Services = () => {
       descKey: "services.card3_desc"
     },
     {
-      // (Убедись, что 'icon-safety.png' - это твое имя файла)
       icon: (
         <img 
           src="/assets/icons/icon-safety.png" 
@@ -103,11 +95,10 @@ const Services = () => {
           <motion.div
             key={index}
             variants={cardVariant}
-            // (Твои стили карточки сохранены)
             className="bg-white/5 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-white/10 
                        flex flex-col items-center text-center"
           >
-            {/* Иконка (теперь это <img>) */}
+            {/* Иконка */}
             {service.icon}
             
             {/* Заголовок */}
