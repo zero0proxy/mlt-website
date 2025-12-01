@@ -1,14 +1,10 @@
-// src/components/Reviews.jsx
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { db } from '../firebase';
 import { collection, addDoc, getDocs, query, orderBy, Timestamp } from "firebase/firestore";
-
-// 1. Импортируем 'useTranslation'
 import { useTranslation } from 'react-i18next';
 
-// Компонент Звезд (без изменений)
+// компонент Звезд
 const StarRating = ({ rating }) => {
   const stars = [];
   for (let i = 1; i <= 5; i++) {
@@ -27,7 +23,7 @@ const StarRating = ({ rating }) => {
   return <div className="flex">{stars}</div>;
 };
 
-// === Главный компонент Reviews ===
+// === компонент Reviews ===
 const Reviews = () => {
   // 2. Получаем 't'
   const { t } = useTranslation();
@@ -40,7 +36,6 @@ const Reviews = () => {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   
-  // (useEffect без изменений)
   useEffect(() => {
     const fetchReviews = async () => {
       try {
@@ -57,10 +52,8 @@ const Reviews = () => {
     fetchReviews();
   }, []);
 
-  // (handleSubmit обновлен с 't()')
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // 3. Переводим текст ошибки
     if (!author.trim() || !text.trim() || rating === 0) {
       setError(t('reviews.error_fill_fields'));
       return;
@@ -78,7 +71,6 @@ const Reviews = () => {
       };
       const docRef = await addDoc(collection(db, "reviews"), newReview);
       
-      // Мгновенно обновляем UI
       setReviews([{ id: docRef.id, ...newReview }, ...reviews]);
       setAuthor('');
       setText('');
@@ -93,16 +85,13 @@ const Reviews = () => {
   };
 
   return (
-    // (Твои стили сохранены)
     <div className="py-24 px-6 max-w-6xl mx-auto">
-      {/* 4. Переводим заголовок */}
       <h2 className="text-4xl font-bold text-center text-white mb-16">
         {t('reviews.title')}
       </h2>
       
       <div className="grid lg:grid-cols-2 gap-16 items-start">
         
-        {/* === КОЛОНКА 1: ФОРМА === */}
         <motion.div 
           className="bg-white/5 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-white/10"
           initial={{ opacity: 0, x: -50 }}
@@ -110,7 +99,6 @@ const Reviews = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={{ visible: { opacity: 1, x: 0, transition: { duration: 0.8 } } }}
         >
-          {/* 5. Переводим все в форме */}
           <h3 className="text-2xl font-semibold text-white mb-6">{t('reviews.form_title')}</h3>
           <form onSubmit={handleSubmit}>
             {/* Имя */}
@@ -140,7 +128,7 @@ const Reviews = () => {
               </div>
             </div>
 
-            {/* Текст отзыва */}
+            {/* отзыв */}
             <div className="mb-6">
               <label htmlFor="text" className="block text-gray-300 mb-2">{t('reviews.label_review')}</label>
               <textarea
@@ -161,9 +149,9 @@ const Reviews = () => {
           </form>
         </motion.div>
 
-        {/* === КОЛОНКА 2: СПИСОК ОТЗЫВОВ === */}
+        {/* === СПИСОК ОТЗЫВОВ === */}
         <div className="h-[600px] overflow-y-auto pr-4">
-          {/* 6. Переводим заглушки */}
+          {/* заглушки */}
           {loading && <p className="text-white text-center">{t('reviews.placeholder_loading')}</p>}
           
           {!loading && reviews.length === 0 && (
@@ -181,11 +169,11 @@ const Reviews = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <div className="flex justify-between items-center mb-2">
-                    {/* Текст пользователя - НЕ ТРОГАЕМ */}
+                    {/* Текст пользователя */}
                     <h4 className="text-lg font-semibold text-white">{review.author}</h4>
                     <StarRating rating={review.rating} />
                   </div>
-                  {/* Текст пользователя - НЕ ТРОГАЕМ */}
+                  {/* Текст пользователя */}
                   <p className="text-gray-300">{review.text}</p>
                 </motion.div>
               ))}
