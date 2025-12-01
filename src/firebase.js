@@ -1,8 +1,6 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-// Этот код "читает" переменные, которые мы предоставим Vercel (и нашему локальному серверу)
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -12,8 +10,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Инициализируем Firebase
 const app = initializeApp(firebaseConfig);
 
-// Экспортируем нашу базу данных (Firestore)
 export const db = getFirestore(app);
