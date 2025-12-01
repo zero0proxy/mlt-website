@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import ParticleBackground from './components/ParticleBackground';
 import Navbar from './components/Navbar';
@@ -11,18 +10,14 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    // 1. Убираем ВСЕ 'overflow'-классы с главного родителя
     <div className="relative">
       
       <ParticleBackground />
 
-      {/* 2. Navbar ТЕПЕРЬ СИДИТ ЗДЕСЬ, как прямой потомок.
-         Он 'sticky', поэтому прилипнет к <body> */}
+      {/* Navbar */}
       <Navbar />
 
-      {/* 3. А 'overflow-x-hidden' мы применяем к ЭТОМУ <div>,
-         который содержит ТОЛЬКО скроллящийся контент.
-         Navbar он больше не ломает. */}
+      {/* overflow-x-hidden */}
       <div className="relative z-10 overflow-x-hidden">
         <main>
           <section id="home"><Hero /></section>
