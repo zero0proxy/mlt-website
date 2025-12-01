@@ -1,5 +1,3 @@
-// src/components/Footer.jsx
-
 import React from 'react';
 
 // 1. Импортируем 'useTranslation'
@@ -16,7 +14,7 @@ const Footer = () => {
     <footer id="contact" className="py-20 px-6 bg-gray-900/50">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-gray-300">
         
-        {/* === Колонка 1: О компании (Переведено) === */}
+        {/* === Колонка 1: О компании === */}
         <div>
           <h3 className="text-2xl font-bold text-white mb-4">MLT</h3>
           <p>
@@ -26,7 +24,7 @@ const Footer = () => {
           <p>{t('footer.col1_p2')}</p>
         </div>
 
-        {/* === Колонка 2: Контакты (Переведено) === */}
+        {/* === Колонка 2: Контакты === */}
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">{t('footer.col2_title')}</h3>
           <ul className="space-y-3">
@@ -36,14 +34,14 @@ const Footer = () => {
             </li>
             <li>
               <span className="font-semibold">{t('footer.col2_label_phone')}</span> 
-              {/* Твоя ссылка и номер телефона СОХРАНЕНЫ */}
+              {/* ссылка и номер телефона */}
               <a href="tel:+995599557474" className="hover:text-white transition-colors">
                 (+995 599 55 74 74)
               </a>
             </li>
             <li>
               <span className="font-semibold">{t('footer.col2_label_email')}</span> 
-              {/* Твоя ссылка и email СОХРАНЕНЫ */}
+              {/* ссылка и email */}
               <a href="mailto:myluckytaxi1@gmail.com" className="hover:text-white transition-colors">
                 (myluckytaxi1@gmail.com)
               </a>
@@ -51,12 +49,12 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* === Колонка 3: Соцсети (Переведено) === */}
+        {/* === Колонка 3: Соцсети === */}
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">{t('footer.col3_title')}</h3>
           <div className="flex space-x-6">
             
-            {/* Твои ссылки СОХРАНЕНЫ */}
+            {/* ссылки */}
             <a href="https://www.facebook.com/mltgeorgia/">
               <img 
                 src="/assets/icons/facebook.png" 
@@ -91,7 +89,7 @@ const Footer = () => {
 
       </div>
 
-      {/* === Нижняя строка (Copyright) (Переведено) === */}
+      {/* === Нижняя строка (Copyright) === */}
       <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
         <p>{t('footer.copyright', { year: currentYear })}</p>
       </div>
