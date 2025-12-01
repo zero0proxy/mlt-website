@@ -1,11 +1,9 @@
-// src/components/Navbar.jsx
-
 import React, { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-// Анимации (без изменений)
+// Анимации
 const navLinkVariants = {
   hidden: { y: -20, opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
@@ -41,18 +39,16 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 120, damping: 20 }}
     >
-      {/* ГЛАВНОЕ ИЗМЕНЕНИЕ: 
-        Добавлен 'relative' к этому контейнеру для абсолютного центрирования меню.
+      {/* Добавлен 'relative' для абсолютного центрирования меню.
       */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
         
-        {/* === 1. Логотип (Слева) === */}
+        {/* ===  Логотип === */}
         <ScrollLink to="hero" smooth={true} duration={500} className="text-3xl font-bold text-white cursor-pointer z-10">
           MLT
         </ScrollLink>
 
-        {/* === 2. Десктопное меню (Центр) ===
-          Абсолютно спозиционировано для идеального центрирования
+        {/* ===  Десктопное меню ===
         */}
         <div className="hidden md:flex items-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <ScrollLink to="about" smooth={true} duration={500} className="text-gray-300 hover:text-white transition-colors cursor-pointer">
@@ -72,8 +68,7 @@ const Navbar = () => {
           </ScrollLink>
         </div>
 
-        {/* === 3. Флаги (Справа) ===
-          Этот блок теперь крайний правый элемент для 'justify-between'
+        {/* ===  Флаги ===
         */}
         <div className="hidden md:flex items-center z-10">
           <div className="flex space-x-2">
@@ -90,7 +85,7 @@ const Navbar = () => {
         </div>
 
 
-        {/* === 4. Мобильное меню (Кнопка + Флаги) === */}
+        {/* ===  Мобильное меню === */}
         <div className="md:hidden flex items-center">
           {/* Кнопки с Флагами (Мобильные) */}
           <div className="flex space-x-2 mr-4">
@@ -114,7 +109,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* === 5. Мобильное меню (Выпадающее) === */}
+      {/* === Мобильное меню === */}
       {isOpen && (
         <motion.div
           className="md:hidden bg-gray-900/90 backdrop-blur-md absolute top-0 right-0 w-64 h-screen shadow-lg p-6 pt-24"
