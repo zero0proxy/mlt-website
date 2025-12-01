@@ -1,18 +1,16 @@
-// src/components/LanguageSwitcher.jsx
-
 import React from 'react';
-import { useTranslation } from 'react-i18next'; // 1. Импортируем главный хук
+import { useTranslation } from 'react-i18next'; // главный хук
 
 const LanguageSwitcher = () => {
-  // 2. 'i18n' - это наш "мозг", 't' - функция перевода (пока не используем)
+  //  'i18n', 't' - функция перевода
   const { i18n } = useTranslation();
 
-  // 3. Функция, которая меняет язык
+  //  Функция, которая меняет язык
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  // 4. Список наших языков
+  //  Список языков
   const languages = [
     { code: 'ru', name: 'RU' },
     { code: 'en', name: 'EN' },
@@ -25,11 +23,6 @@ const LanguageSwitcher = () => {
         <button
           key={lng.code}
           onClick={() => changeLanguage(lng.code)}
-          /* Стилизуем кнопку: 
-            - Если 'lng.code' (ru/en) СОВПАДАЕТ с 'i18n.language' (текущий язык),
-              делаем ее яркой (белой/черной).
-            - Иначе, делаем ее полупрозрачной.
-          */
           className={`
             font-medium text-sm transition-colors
             ${i18n.language === lng.code
