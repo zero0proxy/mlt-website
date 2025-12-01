@@ -1,38 +1,29 @@
-/* src/index.css */
-
-/* Подключаем базовые стили Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Стили из твоего style.css */
 body {
   margin: 0;
-  /* Мы будем использовать Tailwind для шрифтов, но фон берем твой */
   background: #05060f linear-gradient(0deg, rgba(216, 236, 248, .06), rgba(152, 192, 239, .06));
-  color: white; /* Наш дефолтный цвет текста */
+  color: white;
   
-  /* Убираем скроллбар, как у тебя */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Убираем скроллбар для WebKit (Chrome, Safari) */
 body::-webkit-scrollbar {
   display: none;
 }
 
-/* Стили для нашего <canvas> компонента */
 .particle-canvas {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 1; /* Мы можем настроить это позже, если фон будет перекрывать контент */
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   
-  /* Анимация появления, как у тебя */
   opacity: 0;
   animation: loadParticles 0.4s ease-in-out forwards;
 }
